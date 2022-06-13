@@ -17,7 +17,7 @@ JQ_COMMAND_PATH="/path/to/jq"
 # 天気予報APIから最大降水量取得[mm/hour]
 function get_wether_data() {
   curl "https://api.open-meteo.com/v1/forecast?latitude=35.6785&longitude=139.6823&hourly=precipitation" > ${WEATHER_DATA_FILE}
-  MAX_PRECIPITATION=$(cat ${WEATHER_DATA_FILE} |${JQ_COMMAND_PATH} '.hourly.precipitation[range(24;48)]' |awk '{if(max<$1) max=$1} END{print max}')
+  MAX_PRECIPITATION=$(cat ${WEATHER_DATA_FILE} |${JQ_COMMAND_PATH} '.hourly.precipitation[24:48] | max'
   MAX_PRECIPITATION_INT=$(echo ${MAX_PRECIPITATION} |awk -F '.' '{print $1}')
 }
 
