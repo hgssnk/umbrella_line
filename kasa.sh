@@ -5,7 +5,7 @@
 ## =================
 
 CHANNEL_ACCESS_TOKEN="YOUR_TOKEN"
-WEATHER_DATA_FILE="path/to/weather_data.txt"
+WEATHER_DATA_FILE="path/to/weather_data_$(date %Y%m%d).txt"
 LOG_FILE="path/to/precipitation.log"
 WEATHER_INFOMATION="https://www.google.com/search?q=%E6%9D%B1%E4%BA%AC+%E5%A4%A9%E6%B0%97"
 JQ_COMMAND_PATH="/path/to/jq"
